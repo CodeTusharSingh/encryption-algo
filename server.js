@@ -5,7 +5,13 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(
+    origin: 'http://localhost:5173',
+    methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    credentials: true,
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    optionsSuccessStatus: 204,
+));
 
 const PORT = 7474;
 
